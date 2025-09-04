@@ -45,7 +45,7 @@ public class AnnotationHelper implements Serializable {
     public String getBefore() {
         if (!title.isEmpty()) {
             return before
-                    + "<span style=\"color:white;background:red\" title=\""
+                    + "<span style=\"color:white;background:red;padding:3px;\" title=\""
                     + Functions.htmlAttributeEscape(title) + "\">";
         } else {
             return before;

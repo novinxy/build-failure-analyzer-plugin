@@ -37,7 +37,7 @@ if (PluginImpl.getInstance().isNoCausesEnabled() || !matrixRuns.isEmpty()) {
 
     tr {
         td {
-            img(width: "48", height: "48", src: my.getImageUrl(), style: "margin-right:1em;")
+            l.icon(src: "symbol-bulb-outline plugin-ionicons-api", class: "icon-xlg")
         }
         td(style: "vertical-align: middle;") {
             h2(class: "h4") {

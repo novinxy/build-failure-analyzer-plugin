@@ -34,13 +34,13 @@ index = 1
 def rootFailureDisplayData = my.getFailureCauseDisplayData()
 if (PluginImpl.getInstance().isNoCausesEnabled() || !rootFailureDisplayData.isEmpty()) {
 
-    tr {
+    tr(class: "app-summary") {
         td {
-            img(width: "48", height: "48", src: my.getImageUrl(), style: "margin-right:1em;")
+            l.icon(src: "symbol-bulb-outline plugin-ionicons-api", class: "icon-xlg")
         }
         td(style: "vertical-align: middle;") {
-            h2(class: "h4") {
-                text(_("Identified problems"))
+            p {
+                text(_("Identified problems:"))
             }
         }
     }
@@ -96,11 +96,11 @@ def displayLinkTree(linkTree) {
                         if (i > 0) {
                             text(" / ")
                         }
-                        a(href: "${rootURL}/${link.projectUrl}", class: "model-link") {
+                        a(href: "${rootURL}/${link.projectUrl}") {
                             text(link.projectDisplayName + " ")
                         }
                         text(" (")
-                        a(href: "${rootURL}/${link.buildUrl}", class: "model-link") {
+                        a(href: "${rootURL}/${link.buildUrl}") {
                             text(link.buildDisplayName)
                         }
                         text(") ")
@@ -126,8 +126,7 @@ def displayCauses(cause, indent, links) {
                 br {}
                 cause.getIndications().each { indication ->
                     if (links?.buildUrl != null) {
-                        a(href: "${rootURL}/${links.buildUrl}" + "consoleFull#" + indication.matchingHash + cause.id
-                                , class: "model-link") {
+                        a(href: "${rootURL}/${links.buildUrl}" + "consoleFull#" + indication.matchingHash + cause.id) {
                             text(_("Indication") + " " + (index++))
                         }
                         text(" ")

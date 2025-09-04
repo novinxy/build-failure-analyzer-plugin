@@ -111,7 +111,7 @@ public class FailureCauseBuildAction implements BuildBadgeAction {
      * @return the image url.
      */
     public String getImageUrl() {
-        return PluginImpl.getFullImageUrl("48x48", PluginImpl.DEFAULT_ICON_NAME);
+        return "symbol-jenkins";
     }
 
     /**
@@ -120,7 +120,7 @@ public class FailureCauseBuildAction implements BuildBadgeAction {
      * @return the image url.
      */
     public String getBadgeImageUrl() {
-        return PluginImpl.getFullImageUrl("16x16", PluginImpl.DEFAULT_ICON_NAME);
+        return "symbol-cube";
     }
 
     /**

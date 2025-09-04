@@ -82,7 +82,7 @@ public class PluginImpl extends GlobalConfiguration {
     /**
      * Convenience constant for the default icon size. used for {@link #getImageUrl(String, String)}.
      */
-    public static final String DEFAULT_ICON_NAME = "information.png";
+    public static final String DEFAULT_ICON_NAME = "symbol-bulb-outline plugin-ionicons-api";
 
     /**
      * Default number of concurrent scan threads.
@@ -317,7 +317,7 @@ public class PluginImpl extends GlobalConfiguration {
      * @see #getImageUrl(String, String)
      */
     public static String getDefaultIcon() {
-        return getImageUrl(DEFAULT_ICON_NAME);
+        return DEFAULT_ICON_NAME;
     }
 
     /**

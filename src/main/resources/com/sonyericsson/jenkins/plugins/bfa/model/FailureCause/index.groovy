@@ -35,7 +35,6 @@ l.layout(permission: PluginImpl.UPDATE_PERMISSION) {
   l.header(title: _("Failure Cause Management") + " " + my.getName())
 
   def management = my.getAncestorCauseManagement();
-  def imageUrl = PluginImpl.getImageUrl("256x256", "information.png");
 
   context.setVariable("descriptor", my.getDescriptor());
   descriptor.setLastFailedBuildUrl();
@@ -53,8 +52,7 @@ l.layout(permission: PluginImpl.UPDATE_PERMISSION) {
             + "right:-10px;"
             + "top: 50px;"
             + "position: absolute;"
-            + "z-index: -100;"
-            + "background-image: url(\'" + imageUrl + "');") {}
+            + "z-index: -100;") {}
     h1(_("Failure Cause"))
     table(style: "width: 90%", border: "none", cellpadding: "5", cellspacing: "0", width: "90%") {
       tr {
