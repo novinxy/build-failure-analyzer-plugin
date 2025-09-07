@@ -54,9 +54,6 @@ l.layout(permission: PluginImpl.UPDATE_PERMISSION) {
             + "position: absolute;"
             + "z-index: -100;") {}
     h1(_("Failure Cause"))
-    table(style: "width: 90%", border: "none", cellpadding: "5", cellspacing: "0", width: "90%") {
-      tr {
-        td(width: "90%") {
           f.form(action: "configSubmit", method: "POST", name: "causeForm") {
             f.invisibleEntry() {
               f.textbox(field: "id", value: my.getId())
@@ -104,24 +101,18 @@ l.layout(permission: PluginImpl.UPDATE_PERMISSION) {
               f.submit(value: _("Save"))
             }
           }
-        }
-        td(width: "10%", valign: "top") {
-          //The Remove Cause link
           if (Util.fixEmpty(my.getId()) != null) {
-            a(style: "font-weight: bold; "
-                    + "font-size: larger; "
-                    + "padding-left: 30px; "
-                    + "min-height: 30px; "
-                    + "padding-top: 5px; "
-                    + "padding-bottom: 5px; "
-                    + "background-image: url( \'" + imagesURL + "/24x24/edit-delete.png\'); "
-                    + "background-position: left center; "
-                    + "background-repeat: no-repeat;",
-                    href: "../remove?id=" + my.getId(),
-                    title: _("Remove this cause")) {text(_("Remove"))}
-          }
-        }
-      }
+            l.confirmationLink(
+              href:"../removeConfirm?id=" + my.getId(),
+              class: "jenkins-button jenkins-!-destructive-color",
+              post: "true",
+              message: _("removeQuestion", my.getName()),
+              destructive: true
+            ) {
+
+              l.icon(src:"symbol-trash")
+              text(_("Remove"))
+            }
     }
   }
 }
