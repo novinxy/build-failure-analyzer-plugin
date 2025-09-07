@@ -37,7 +37,7 @@ public class ScanLogAction implements RunAction2 {
     @NonNull
     @Override
     public String getIconFileName() {
-        return "symbol-bulb-outline plugin-ionicons-api"
+        return "symbol-bulb-outline plugin-ionicons-api";
     }
 
     /**

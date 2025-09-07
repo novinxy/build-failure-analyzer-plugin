@@ -142,10 +142,16 @@ l.layout(norefresh: true) {
             }
             td {
               if (canRemove) {
-                a(class: "jenkins-button jenkins-!-destructive-color", href:"remove?id=" + cause.getId()) {
-                  l.icon(src:"symbol-delete")
-                  text(_("Remove"))
+                l.confirmationLink(
+                  href:"removeConfirm?id=" + cause.getId(),
+                  class: "jenkins-button jenkins-!-destructive-color",
+                  post: "true",
+                  message: _("removeQuestion", cause.getName()),
+                  destructive: true
+                ) {
 
+                  l.icon(src:"symbol-trash")
+                  text(_("Remove"))
                 }
               }
             }
