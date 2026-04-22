@@ -324,7 +324,7 @@ public class MongoDBKnowledgeBase extends KnowledgeBase {
     @Override
     public FailureCause removeCause(String id) {
         BasicDBObject removedInfo = new BasicDBObject("timestamp", new Date());
-        removedInfo.put("by", Jenkins.getAuthentication().getName());
+        removedInfo.put("by", Jenkins.getAuthentication2().getName());
         BasicDBObject update = new BasicDBObject("$set", new BasicDBObject("_removed", removedInfo));
         getJacksonCollection().updateById(id, update);
         final FailureCause modifiedFailureCause = getJacksonCollection().findOneById(id);

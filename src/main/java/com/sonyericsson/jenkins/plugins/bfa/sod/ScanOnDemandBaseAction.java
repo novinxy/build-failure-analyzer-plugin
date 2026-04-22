@@ -139,7 +139,7 @@ public class ScanOnDemandBaseAction implements Action {
     public void checkPermission() {
         if (!hasPermission()) {
             throw new AccessDeniedException(
-                    Messages.SodAccessDeniedException(Jenkins.getAuthentication().getName(),
+                    Messages.SodAccessDeniedException(Jenkins.getAuthentication2().getName(),
                             Item.CONFIGURE.name, Project.BUILD.name));
         }
     }
