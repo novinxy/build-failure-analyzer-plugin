@@ -248,7 +248,7 @@ public class FailureCause implements Serializable, Action, Describable<FailureCa
     public synchronized void doConfigSubmit(StaplerRequest2 request, StaplerResponse2 response)
             throws Exception {
         logger.entering(getClass().getName(), "doConfigSubmit");
-        Jenkins.getInstance().checkPermission(PluginImpl.UPDATE_PERMISSION);
+        Jenkins.get().checkPermission(PluginImpl.UPDATE_PERMISSION);
         JSONObject form = request.getSubmittedForm();
         String newId = form.getString("id");
         newId = Util.fixEmpty(newId);
@@ -599,7 +599,7 @@ public class FailureCause implements Serializable, Action, Describable<FailureCa
 
     @Override
     public FailureCauseDescriptor getDescriptor() {
-        return Jenkins.getInstance().getDescriptorByType(FailureCauseDescriptor.class);
+        return Jenkins.get().getDescriptorByType(FailureCauseDescriptor.class);
     }
 
     /**
@@ -661,7 +661,7 @@ public class FailureCause implements Serializable, Action, Describable<FailureCa
          */
         @RequirePOST
         public FormValidation doCheckDescription(@QueryParameter final String value) {
-            Jenkins.getInstance().checkPermission(PluginImpl.UPDATE_PERMISSION);
+            Jenkins.get().checkPermission(PluginImpl.UPDATE_PERMISSION);
             if (Util.fixEmpty(value) == null) {
                 return FormValidation.error("You should provide a description.");
             }
@@ -684,7 +684,7 @@ public class FailureCause implements Serializable, Action, Describable<FailureCa
         public FormValidation doCheckName(
                 @QueryParameter final String value,
                 @QueryParameter final String id) {
-            Jenkins.getInstance().checkPermission(PluginImpl.UPDATE_PERMISSION);
+            Jenkins.get().checkPermission(PluginImpl.UPDATE_PERMISSION);
             if (Util.fixEmpty(value) == null) {
                 return FormValidation.error("You must provide a name for the failure cause!");
             }

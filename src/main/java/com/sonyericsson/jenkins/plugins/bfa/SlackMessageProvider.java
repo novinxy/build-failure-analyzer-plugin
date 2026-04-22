@@ -85,7 +85,7 @@ public class SlackMessageProvider {
      * @return Descriptor
      */
     private SlackNotifier.DescriptorImpl getSlackDescriptor() {
-        return (SlackNotifier.DescriptorImpl)Jenkins.getInstance().getDescriptor(SlackNotifier.class);
+        return (SlackNotifier.DescriptorImpl)Jenkins.get().getDescriptor(SlackNotifier.class);
     }
 
     /**

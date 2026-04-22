@@ -234,7 +234,7 @@ public class LocalFileKnowledgeBase extends KnowledgeBase {
 
     @Override
     public Descriptor<KnowledgeBase> getDescriptor() {
-        return Jenkins.getInstance().getDescriptorByType(LocalFileKnowledgeBaseDescriptor.class);
+        return Jenkins.get().getDescriptorByType(LocalFileKnowledgeBaseDescriptor.class);
     }
 
     @Override

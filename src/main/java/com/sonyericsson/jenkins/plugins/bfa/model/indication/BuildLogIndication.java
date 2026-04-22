@@ -283,9 +283,9 @@ public class BuildLogIndication extends Indication {
                         for (String part: jobParts) {
                             fullFolderName.append("/").append(part);
                         }
-                        getItemInstance = (ItemGroup)Jenkins.getInstance().getItemByFullName(fullFolderName.toString());
+                        getItemInstance = (ItemGroup)Jenkins.get().getItemByFullName(fullFolderName.toString());
                     } else {
-                        getItemInstance = (ItemGroup)Jenkins.getInstance();
+                        getItemInstance = (ItemGroup)Jenkins.get();
                     }
 
                     if (getItemInstance == null) {

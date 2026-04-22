@@ -94,7 +94,7 @@ public class GerritMessageProviderExtension extends GerritMessageProvider {
             message.append(failureCause.getDescription());
 
             message.append(" ( ")
-            .append(Jenkins.getInstance().getRootUrl())
+            .append(Jenkins.get().getRootUrl())
             .append(displayData.getLinks().getBuildUrl())
             .append(" )");
         }
@@ -106,7 +106,7 @@ public class GerritMessageProviderExtension extends GerritMessageProvider {
 
             message.append(PluginImpl.getInstance().getNoCausesMessage())
                     .append(" ( ")
-                    .append(Jenkins.getInstance().getRootUrl())
+                    .append(Jenkins.get().getRootUrl())
                     .append(displayData.getLinks().getBuildUrl())
                     .append(" )");
         }

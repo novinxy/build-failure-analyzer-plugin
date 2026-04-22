@@ -199,7 +199,7 @@ public class PluginImpl extends GlobalConfiguration {
     public XmlFile getConfigFile() {
         return new XmlFile(
                 Jenkins.XSTREAM,
-                new File(Jenkins.getInstance().getRootDir(), "build-failure-analyzer.xml")
+                new File(Jenkins.get().getRootDir(), "build-failure-analyzer.xml")
         ); // for backward compatibility
     }
 
@@ -844,7 +844,7 @@ public class PluginImpl extends GlobalConfiguration {
      * @return the AutoCompletionCandidates.
      */
     public AutoCompletionCandidates getCategoryAutoCompletionCandidates(String prefix) {
-        Jenkins.getInstance().checkPermission(UPDATE_PERMISSION);
+        Jenkins.get().checkPermission(UPDATE_PERMISSION);
         List<String> categories;
         try {
             categories = getKnowledgeBase().getCategories();

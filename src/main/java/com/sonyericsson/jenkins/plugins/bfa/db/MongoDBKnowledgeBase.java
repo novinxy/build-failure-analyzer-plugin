@@ -707,7 +707,7 @@ public class MongoDBKnowledgeBase extends KnowledgeBase {
 
     @Override
     public Descriptor<KnowledgeBase> getDescriptor() {
-        return Jenkins.getInstance().getDescriptorByType(MongoDBKnowledgeBaseDescriptor.class);
+        return Jenkins.get().getDescriptorByType(MongoDBKnowledgeBaseDescriptor.class);
     }
 
     /**
@@ -878,7 +878,7 @@ public class MongoDBKnowledgeBase extends KnowledgeBase {
                 @QueryParameter("password") final String password,
                 @QueryParameter("tls") final boolean tls,
                 @QueryParameter("retrywrites") final boolean retryWrites) {
-            Jenkins.getInstance().checkPermission(Jenkins.ADMINISTER);
+            Jenkins.get().checkPermission(Jenkins.ADMINISTER);
             MongoDBKnowledgeBase base = new MongoDBKnowledgeBase(host, port, dbName, userName,
                     Secret.fromString(password), false, false);
             base.setTls(tls);

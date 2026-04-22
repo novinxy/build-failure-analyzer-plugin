@@ -226,7 +226,7 @@ public class CauseManagement implements RootAction {
     @POST
     public void doRemoveConfirm(@QueryParameter String id, StaplerRequest2 request, StaplerResponse2 response)
             throws IOException {
-        Jenkins.getInstance().checkPermission(PluginImpl.REMOVE_PERMISSION);
+        Jenkins.get().checkPermission(PluginImpl.REMOVE_PERMISSION);
         id = Util.fixEmpty(id);
         if (id != null) {
             try {

@@ -276,7 +276,7 @@ class DisplayDownstreamTest {
         MatrixProject matrixProject = createMatrixProjectNews(jenkins);
 
         matrixProject.setQuietPeriod(0);
-        jenkins.getInstance().rebuildDependencyGraph();
+        Jenkins.get().rebuildDependencyGraph();
         matrixProject.scheduleBuild2(0, new Cause.UserIdCause()).get();
 
         return matrixProject.getLastBuild();
@@ -317,7 +317,7 @@ class DisplayDownstreamTest {
 
         jenkins.jenkins.setNumExecutors(50);
         //TODO https://github.com/jenkinsci/jenkins/pull/1596 renders this workaround unnecessary
-        jenkins.jenkins.setNodes(jenkins.getInstance().getNodes()); // update nodes configuration
+        jenkins.jenkins.setNodes(Jenkins.get().getNodes()); // update nodes configuration
 
         MatrixProject matrixProject = MatrixSupport.createMatrixProject(jenkins, MATRIX_PROJECT_NEWS);
 

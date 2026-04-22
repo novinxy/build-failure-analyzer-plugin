@@ -252,12 +252,12 @@ public class BuildFailureScanner extends RunListener<Run> {
             StatisticsLogger.getInstance().log(build, foundCauseListToLog);
 
             // Check slack plugin is installed
-            if (Jenkins.getInstance().getPlugin("slack") != null) {
+            if (Jenkins.get().getPlugin("slack") != null) {
                 boolean slackEnabled = PluginImpl.getInstance().isSlackNotifEnabled();
                 if (slackEnabled && slackFailCauseCat != null) {
                     String buildNum = String.valueOf(build.getNumber());
                     String buildName = data.getLinks().getProjectDisplayName();
-                    String buildUrl = Jenkins.getInstance().getRootUrl() + build.getUrl();
+                    String buildUrl = Jenkins.get().getRootUrl() + build.getUrl();
                     createSlackMessage(foundCauseList, notifySlackAllFail, slackFailCauseCat, buildName,
                             buildNum, buildUrl, scanLog);
                 }
@@ -373,7 +373,7 @@ public class BuildFailureScanner extends RunListener<Run> {
         for (FailureCauseDisplayData displayData : downstreamFailureCauses) {
             FailureCauseDisplayData.Links links = displayData.getLinks();
             if (!displayData.getFoundFailureCauses().isEmpty()) {
-                logToScanLog(scanLog, "See: " + Jenkins.getInstance().getRootUrl() + links.getBuildUrl());
+                logToScanLog(scanLog, "See: " + Jenkins.get().getRootUrl() + links.getBuildUrl());
                 for (FoundFailureCause foundCause : displayData.getFoundFailureCauses()) {
                     String foundString = foundCause.getName();
                     if (foundCause.getCategories() != null) {

@@ -311,7 +311,7 @@ public class FailureCauseMatrixBuildAction implements BuildBadgeAction {
             // but stapler can't help me if I use the URL which would be preferred.
             //TODO what to do when the job is renamed?
             TopLevelItem item;
-            item = Jenkins.getInstance().getItem(project);
+            item = Jenkins.get().getItem(project);
             logger.log(Level.FINE, "Project item for {0} is {1}", new Object[]{project, item});
             if (item != null && item instanceof MatrixProject) {
                 logger.log(Level.FINEST, "It is a matrix project; searching for build {0}", cause.getUpstreamBuild());

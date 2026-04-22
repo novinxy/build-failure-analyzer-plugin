@@ -260,7 +260,7 @@ public abstract class KnowledgeBase implements Describable<KnowledgeBase>, Seria
          * @return the extension list.
          */
         public static ExtensionList<KnowledgeBaseDescriptor> all() {
-            return Jenkins.getInstance().getExtensionList(KnowledgeBaseDescriptor.class);
+            return Jenkins.get().getExtensionList(KnowledgeBaseDescriptor.class);
         }
     }
 }
