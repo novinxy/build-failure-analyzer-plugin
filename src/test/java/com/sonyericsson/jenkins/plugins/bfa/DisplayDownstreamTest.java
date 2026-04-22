@@ -40,6 +40,7 @@ import hudson.matrix.MatrixRun;
 import hudson.model.Cause;
 import hudson.model.FreeStyleProject;
 import hudson.model.Result;
+import jenkins.model.Jenkins;
 import hudson.plugins.parameterizedtrigger.AbstractBuildParameters;
 import hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig;
 import hudson.plugins.parameterizedtrigger.BlockingBehaviour;

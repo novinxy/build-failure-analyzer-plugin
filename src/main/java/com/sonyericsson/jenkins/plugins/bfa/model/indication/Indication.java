@@ -33,7 +33,7 @@ import com.sonyericsson.jenkins.plugins.bfa.model.FailureReader;
 import hudson.ExtensionList;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
-import hudson.model.Hudson;
+import jenkins.model.Jenkins;
 import hudson.util.FormValidation;
 import org.kohsuke.stapler.QueryParameter;
 

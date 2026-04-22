@@ -30,7 +30,7 @@ import com.sonyericsson.jenkins.plugins.bfa.Messages;
 import com.sonyericsson.jenkins.plugins.bfa.model.FailureReader;
 import com.sonyericsson.jenkins.plugins.bfa.model.MultilineBuildLogFailureReader;
 import hudson.Extension;
-import hudson.model.Hudson;
+import jenkins.model.Jenkins;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.util.regex.Pattern;
