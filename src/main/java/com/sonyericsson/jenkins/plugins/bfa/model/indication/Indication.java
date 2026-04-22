@@ -113,7 +113,7 @@ public abstract class Indication implements Describable<Indication>, Serializabl
          * @return the list of descriptors.
          */
         public static ExtensionList<IndicationDescriptor> getAll() {
-            return Hudson.getInstance().getExtensionList(IndicationDescriptor.class);
+            return Jenkins.get().getExtensionList(IndicationDescriptor.class);
         }
 
         /**

@@ -641,7 +641,7 @@ public class FailureCause implements Serializable, Action, Describable<FailureCa
                 Job project = staplerRequest.findAncestorObject(Job.class);
                 if (project != null && project.getLastFailedBuild() != null) {
                     staplerRequest.getSession(true).setAttribute(LAST_FAILED_BUILD_URL_SESSION_ATTRIBUTE_NAME,
-                            Hudson.getInstance().getRootUrl() + project.getLastFailedBuild().getUrl());
+                            Jenkins.get().getRootUrl() + project.getLastFailedBuild().getUrl());
                 } else {
                     staplerRequest.getSession(true).setAttribute(LAST_FAILED_BUILD_URL_SESSION_ATTRIBUTE_NAME, "");
                 }

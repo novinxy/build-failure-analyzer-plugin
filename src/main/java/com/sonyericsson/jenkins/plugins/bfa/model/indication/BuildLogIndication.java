@@ -93,7 +93,7 @@ public class BuildLogIndication extends Indication {
     @Override
     @JsonIgnore
     public IndicationDescriptor getDescriptor() {
-        return Hudson.getInstance().getDescriptorByType(BuildLogIndicationDescriptor.class);
+        return Jenkins.get().getDescriptorByType(BuildLogIndicationDescriptor.class);
     }
 
     /**

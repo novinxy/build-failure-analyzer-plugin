@@ -106,8 +106,8 @@ public class CauseManagement implements RootAction {
     private static final String OWNER_URL = "/";
     @Override
     public String getIconFileName() {
-        if (Hudson.getInstance().hasPermission(PluginImpl.UPDATE_PERMISSION)
-                || Hudson.getInstance().hasPermission(PluginImpl.VIEW_PERMISSION)) {
+        if (Jenkins.get().hasPermission(PluginImpl.UPDATE_PERMISSION)
+                || Jenkins.get().hasPermission(PluginImpl.VIEW_PERMISSION)) {
             return PluginImpl.getDefaultIcon();
         } else {
             return null;
@@ -116,9 +116,9 @@ public class CauseManagement implements RootAction {
 
     @Override
     public String getDisplayName() {
-        if (Hudson.getInstance().hasPermission(PluginImpl.UPDATE_PERMISSION)) {
+        if (Jenkins.get().hasPermission(PluginImpl.UPDATE_PERMISSION)) {
             return Messages.CauseManagement_DisplayName();
-        } else if (Hudson.getInstance().hasPermission(PluginImpl.VIEW_PERMISSION)) {
+        } else if (Jenkins.get().hasPermission(PluginImpl.VIEW_PERMISSION)) {
             return Messages.CauseList_DisplayName();
         } else {
             return null;
@@ -249,7 +249,7 @@ public class CauseManagement implements RootAction {
      * @return the holder of the beer.
      */
     public ModelObject getOwner() {
-        return Hudson.getInstance();
+        return Jenkins.get();
     }
 
     /**
@@ -304,7 +304,7 @@ public class CauseManagement implements RootAction {
      */
     public boolean isUnderTest() {
         return "org.jvnet.hudson.test.TestPluginManager".
-                equals(Hudson.getInstance().getPluginManager().getClass().getName());
+                equals(Jenkins.get().getPluginManager().getClass().getName());
     }
 
     /**
@@ -314,7 +314,7 @@ public class CauseManagement implements RootAction {
      * @return the instance.
      */
     public static CauseManagement getInstance() {
-        for (Action action : Hudson.getInstance().getActions()) {
+        for (Action action : Jenkins.get().getActions()) {
             if (action instanceof CauseManagement) {
                 return (CauseManagement)action;
             }

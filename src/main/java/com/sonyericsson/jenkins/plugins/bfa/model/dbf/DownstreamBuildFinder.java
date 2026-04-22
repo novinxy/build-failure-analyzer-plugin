@@ -87,7 +87,7 @@ public abstract class DownstreamBuildFinder implements ExtensionPoint {
      * @return a list of DownstreamBuildFinder
      */
     public static ExtensionList<DownstreamBuildFinder> getAll() {
-        return Hudson.getInstance().
+        return Jenkins.get().
                 getExtensionList(DownstreamBuildFinder.class);
     }
 }

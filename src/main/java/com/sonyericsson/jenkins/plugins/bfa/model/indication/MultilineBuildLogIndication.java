@@ -73,7 +73,7 @@ public class MultilineBuildLogIndication extends BuildLogIndication {
 
     @Override
     public IndicationDescriptor getDescriptor() {
-        return Hudson.getInstance().getDescriptorByType(MultilineBuildLogIndicationDescriptor.class);
+        return Jenkins.get().getDescriptorByType(MultilineBuildLogIndicationDescriptor.class);
     }
 
     /**
