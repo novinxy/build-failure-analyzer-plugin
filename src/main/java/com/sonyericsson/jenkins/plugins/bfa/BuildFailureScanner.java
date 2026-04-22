@@ -245,7 +245,7 @@ public class BuildFailureScanner extends RunListener<Run> {
 
             /* Check if ALL failures are to be reported */
             boolean notifySlackAllFail = false;
-            if (slackFailCauseCat.get(0).equals(PluginImpl.getInstance().DEFAULT_SLACK_FAILURE_CATEGORIES)) {
+            if (slackFailCauseCat.get(0).equals(PluginImpl.DEFAULT_SLACK_FAILURE_CATEGORIES)) {
                 notifySlackAllFail = true;
             }
 
