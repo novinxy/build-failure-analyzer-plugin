@@ -26,6 +26,8 @@ package com.sonyericsson.jenkins.plugins.bfa.sod;
 import org.htmlunit.ElementNotFoundException;
 import org.htmlunit.html.HtmlAnchor;
 import org.htmlunit.html.HtmlPage;
+import org.jenkinsci.plugins.matrixauth.PermissionEntry;
+
 import com.sonyericsson.jenkins.plugins.bfa.PluginImpl;
 import com.sonyericsson.jenkins.plugins.bfa.model.FailureCauseBuildAction;
 import com.sonyericsson.jenkins.plugins.bfa.model.ScannerJobProperty;
@@ -78,7 +80,7 @@ class ScanOnDemandBaseActionTest {
         Future<FreeStyleBuild> future = project.scheduleBuild2(0);
         FreeStyleBuild build = future.get(10, TimeUnit.SECONDS);
         if (build.getAction(FailureCauseBuildAction.class) != null) {
-            build.getActions().remove(build.getAction(FailureCauseBuildAction.class));
+            build.getAllActions().remove(build.getAction(FailureCauseBuildAction.class));
         }
         assertNull(build.getAction(FailureCauseBuildAction.class));
         j.assertBuildStatus(Result.FAILURE, build);
@@ -102,7 +104,7 @@ class ScanOnDemandBaseActionTest {
         Future<FreeStyleBuild> future = project.scheduleBuild2(0);
         FreeStyleBuild build = future.get(10, TimeUnit.SECONDS);
         if (build.getAction(FailureCauseBuildAction.class) != null) {
-            build.getActions().remove(build.getAction(FailureCauseBuildAction.class));
+            build.getAllActions().remove(build.getAction(FailureCauseBuildAction.class));
         }
         assertNull(build.getAction(FailureCauseBuildAction.class));
         j.assertBuildStatus(Result.SUCCESS, build);
@@ -127,12 +129,12 @@ class ScanOnDemandBaseActionTest {
         SecurityRealm securityRealm = j.createDummySecurityRealm();
         Jenkins.get().setSecurityRealm(securityRealm);
         GlobalMatrixAuthorizationStrategy strategy = new GlobalMatrixAuthorizationStrategy();
-        strategy.add(Jenkins.READ, "anonymous");
-        strategy.add(Item.CONFIGURE, "bobby");
-        strategy.add(Item.READ, "bobby");
-        strategy.add(Jenkins.READ, "bobby");
-        strategy.add(Item.READ, "alice");
-        strategy.add(Jenkins.READ, "alice");
+        strategy.add(Jenkins.READ, PermissionEntry.user("anonymous"));
+        strategy.add(Item.CONFIGURE, PermissionEntry.user("bobby"));
+        strategy.add(Item.READ, PermissionEntry.user("bobby"));
+        strategy.add(Jenkins.READ, PermissionEntry.user("bobby"));
+        strategy.add(Item.READ, PermissionEntry.user("alice"));
+        strategy.add(Jenkins.READ, PermissionEntry.user("alice"));
         Jenkins.get().setAuthorizationStrategy(strategy);
 
 

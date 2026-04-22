@@ -164,11 +164,11 @@ public class ScanOnDemandBaseAction implements Action {
             if (run.getNumber() == build.getNumber()) {
                 FailureCauseBuildAction fcba = run.getAction(FailureCauseBuildAction.class);
                 if (fcba != null) {
-                    run.getActions().remove(fcba);
+                    run.getAllActions().remove(fcba);
                 }
                 FailureCauseMatrixBuildAction fcmba = run.getAction(FailureCauseMatrixBuildAction.class);
                 if (fcmba != null) {
-                    run.getActions().remove(fcmba);
+                    run.getAllActions().remove(fcmba);
                 }
             }
         }
@@ -368,12 +368,12 @@ public class ScanOnDemandBaseAction implements Action {
                 Run run = runIterator.next();
                 FailureCauseBuildAction fcba = run.getAction(FailureCauseBuildAction.class);
                 if (fcba != null) {
-                    run.getActions().remove(fcba); //TODO Replace instead
+                    run.getAllActions().remove(fcba); //TODO Replace instead
                 }
                 FailureCauseMatrixBuildAction fcmba = run.getAction(FailureCauseMatrixBuildAction.class);
                 if (run instanceof MatrixBuild
                         && fcmba != null) {
-                    run.getActions().remove(fcmba); //TODO Replace instead
+                    run.getAllActions().remove(fcmba); //TODO Replace instead
                     action.removeRunActions((MatrixBuild)run);
                 }
                 ScanOnDemandTask task = new ScanOnDemandTask(run);
