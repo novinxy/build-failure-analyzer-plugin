@@ -39,7 +39,6 @@ class GerritMessageProviderExtensionTest {
         jenkinsMockedStatic = mockStatic(Jenkins.class);
         Jenkins jenkins = mock(Jenkins.class);
         jenkinsMockedStatic.when(Jenkins::get).thenReturn(jenkins);
-        jenkinsMockedStatic.when(Jenkins::getInstance).thenReturn(jenkins);
         when(jenkins.getRootUrl()).thenReturn(JENKINS_URL);
 
 

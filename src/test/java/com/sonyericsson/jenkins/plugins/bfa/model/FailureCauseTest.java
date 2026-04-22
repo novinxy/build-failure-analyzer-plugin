@@ -99,7 +99,6 @@ class FailureCauseTest {
 
         jenkinsMockedStatic = mockStatic(Jenkins.class);
         jenkinsMockedStatic.when(Jenkins::get).thenReturn(jenkinsMock);
-        jenkinsMockedStatic.when(Jenkins::getInstance).thenReturn(jenkinsMock);
         jenkinsMockedStatic.when(() -> Jenkins.checkGoodName(any())).thenCallRealMethod();
 
         descriptor = new FailureCause.FailureCauseDescriptor();
