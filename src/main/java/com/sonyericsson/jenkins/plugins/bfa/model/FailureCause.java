@@ -39,7 +39,6 @@ import hudson.model.AutoCompletionCandidates;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
 import hudson.model.Failure;
-import hudson.model.Hudson;
 import hudson.model.Job;
 import hudson.model.User;
 import hudson.util.FormValidation;

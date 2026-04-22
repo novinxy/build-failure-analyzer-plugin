@@ -33,7 +33,6 @@ import hudson.ExtensionList;
 import hudson.Util;
 import hudson.model.Action;
 import hudson.model.Failure;
-import hudson.model.Hudson;
 import hudson.model.ModelObject;
 import hudson.model.RootAction;
 import hudson.security.Permission;

@@ -36,7 +36,6 @@ import com.sonyericsson.jenkins.plugins.bfa.model.FailureReader;
 import hudson.Extension;
 import hudson.matrix.MatrixConfiguration;
 import hudson.matrix.MatrixProject;
-import hudson.model.Hudson;
 import hudson.model.Item;
 import hudson.model.ItemGroup;
 import hudson.model.Job;
